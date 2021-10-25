@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.container{
+    display: flex;
+    background-color: #000;
+    width:100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.card{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background: #262626;
+    overflow: hidden;
+}
+.card input, .toggle{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    outline: none;
+   
+    z-index: 10;
+}
+.card input{
+    opacity: 0;
+}
+.card .toggle{
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 0 0 #333;
+    line-height: 50px;
+    text-align: center;
+    font-size: 36px;
+    transition: 0.5s;
+}
+.card .toggle::before{
+    content: "+";
+}
+.card input:checked ~ .toggle{
+    box-shadow: 0 0 0 500px #333;
+    transform: rotate(225deg);
+}
+.imgbox{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.imgbox img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.card .content{
+    position: absolute;
+    padding: 20px;
+    text-align: center;
+    z-index: 11;
+    opacity: 0;
+    color: #fff;
+    font-size: 10px;
+    transition: 0.5s;
+   
+}
+.card input:checked ~ .content{
+    opacity: 1;
+    transition-delay: 0.45s;
+}
